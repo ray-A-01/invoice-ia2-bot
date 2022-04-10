@@ -1,0 +1,344 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="UpdateQuickBooks" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_Hours" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_dblInvoiceNum" Type="InArgument(x:Double)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1202.4,4133.6</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>UpdateQuickBooks_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Task Desc: Adds the Invoice details to QuickBooks." DisplayName="UpdateQuickBooks" sap:VirtualizedContainerService.HintSize="903.2,4068.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Logging In To QuickBooks" sap:VirtualizedContainerService.HintSize="861.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="QuickBooks\QuickBooks_Login.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Navigating To Invoices Tab" sap:VirtualizedContainerService.HintSize="861.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="QuickBooks\NavigateToInvoicesTab.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="861.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Creating Invoice Details.&quot;]" />
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser - QuickBooks Self-Employed" sap:VirtualizedContainerService.HintSize="861.6,3504.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="4e6d84e4-6c94-4b1a-8303-2c5a87f4f97b" Version="V1" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Creating New Invoice Details" sap:VirtualizedContainerService.HintSize="828,3288" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ClickType="Single" DisplayName="Clicking 'Create invoice'" sap:VirtualizedContainerService.HintSize="786.4,157.6" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4e6d84e4-6c94-4b1a-8303-2c5a87f4f97b">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://selfemployed.intuit.com/home#/app/invoice/list" DesignTimeRectangle="1687, 313, 132, 30" FriendlyName="'Create invoice'" FullSelectorArgument="&lt;webctrl tag='STRONG' /&gt;" FuzzyAccuracy="0.6" FuzzySelectorArgument="&lt;webctrl tag='STRONG' type='' class='idsT Typography-avenir-demi-069fdf3 Typography-quickbooks-27dc894 Typography-light-6e0d1b7' aaname='Create invoice' check:innerText='Create invoice' /&gt;" Guid="29d351b9-9650-451c-88ca-d468c11e8f36" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIgAAAAiCAYAAACEPZHaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAL3SURBVHhe7ZcxcuMwDEX3IDnCnjKtL5EuVW6RIuMraFynddK54oqySALkByxqaWcm8zHzipgUAH5+kcqfvy9PgRALGoS40CDEhQYhLjQIcaFBiAsNQlxoEOJCgxAXGoS40CCI43v4DjG+wscRjP8wb+eluRDOr3B8JK5BDp9faydVXN7DAcz/Lch1f38+wzk/x2s4rb2FMIU3OGcc0CCmMep4gINNpmlt4g5vOU+QTGOQ2hynSY8nB7e/P5h7GoRktEHymxPj/sfXf0GDPARlkHx0dYqenlvu67xx2mDttWUbsPSxhvrmkXewjvp7oaemAl4xqe71N51b61XGgI7iJdT9PoePyzqQA/frXjFZ/xR4L7dqIwwihO/8CM0GuciiqaC9oTH0VeXNvZ2vCN5TE3DDIKdzLW4MMdc0gdwYsSHq5G6jzoENggwmIs/t06YYRDbZ+fGj3vjq2TKmHZp/F2ZM4qkmLbGdK6anJsQ1SAxsBrl2XEtsItww2a/ccL3GnFvUkyeC1Cn+Lv/u1WawQXRR+dbVm+iPaZAgtkEG1LxhEPONluKi/oTG6SUoG+v1OwcyHzKZu3f92gy9YprmmvsQx+ZrZotBdtWsuGGQ+lloEDE/GSqbQczDzxbQeKO3MF5tXsUObYZ+pO41SFpUqW/EQIO4Qg4xSG2IcmXI2taz3nij92CDyBzKILKQ1XBkWbjYrKbhBBTawFkkzG8ZpKemBczRbxCVZzL6staxIE5TV288r2GHNtogM+VOjNEmys3FWAUxDaLmV7mWZsU3S26+2gDpepnfmj+zuaYFFHKHQdB/Fo1GYnPv8JEa9YMn1kZtGoMsbDmKvCNPIQUAkfMAMetQ+du8ZeO21jQYZpCZSsv62QVhdhRmPaWHr99ebbBBVvRpkqJy3oxvkCsoV3tf1ou81jLzV8LW+bbVBIw0iNoQ//TKeXLg+a7e4OWOaz4c92njGoQQGoS40CDEhQYhLjQIcaFBiAsNQlxoEOJCgxCHp/APzqkeqarw8qQAAAAASUVORK5CYII=" InformativeScreenshot="86192de3a2027aade08fe95ad8560373.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='QuickBooks Self-Employed' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Typing In The Invoice Recipient" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="786.4,255.2" sap2010:WorkflowViewState.IdRef="NTypeInto_9" ScopeIdentifier="4e6d84e4-6c94-4b1a-8303-2c5a87f4f97b" Text="[in_Config(&quot;InvoiceRecipient&quot;).ToString + &quot;[k(tab)]&quot;]" Version="V1">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://selfemployed.intuit.com/home#/app/invoice/new" DesignTimeRectangle="89, 431, 301, 45" ElementType="InputBox" FriendlyName="'INPUT idsDropdownTypeah…'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' /&gt;" Guid="386dde20-babc-485b-b6f1-5382919632f0" ImageBase64="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" ScopeSelectorArgument="&lt;html app='chrome.exe' title='QuickBooks Self-Employed' /&gt;" SearchSteps="Selector" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="0" />
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Typing In The 'Invoice no.'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="786.4,255.2" sap2010:WorkflowViewState.IdRef="NTypeInto_10" ScopeIdentifier="4e6d84e4-6c94-4b1a-8303-2c5a87f4f97b" Text="[in_dblInvoiceNum.ToString]" Version="V1">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://selfemployed.intuit.com/home#/app/invoice/new" DesignTimeRectangle="642, 545, 175, 30" ElementType="InputBox" FriendlyName="'1031'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' placeholder='Invoice number' /&gt;" Guid="2e2ba9e3-a25b-4985-b98e-b3c9e68f661e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALMAAAAiCAYAAAAULugVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAL/SURBVHhe7drrS1RBHMbx/q4iy6xEzLRECSJNicKiwkBQk9QsMi/pplamSTfxklbgJSXElERMzQQ3Qk1XxW1XXbv9AU/9Rs6y53jZYy0Uw/Pi82LnjJ43X4aZ2d2x+tMHIh0wZtIGYyZtMGbSBmMmbTBm0gZjJm0wZtIGYyZtMGbSxrZiXv62hIqqSpQ6yjd81vKiBQmJx7BzVxiSklPQ/qodK9+XTfNciy44KitwMDIKu8PCce78BQyNDsH3Y8U0z7DVO4kC2Y7Zu+rF/bpaFaA1LAmxurYGe/ZG4FZ5GTpfd+FKXh7C9x1QgRvz3MuLyMnNRdyReDxpqEdHVwcupqersHv7e03/U2z1TiKroDFLqBOfJnApI0OtuMIalnPSqVbkR08f+1dYWVHLbjuQdDIV064pNdbW2YaI/ZGmcBc8C+p/S+Ren0eN2XknkVXQmGcXZ5GSegrRMYfR2NKEzOzsdWFJpLLajjvHTeODI4Nq1e0b6FefZZWVQBc88/453lUP8q8VICvnMr4su9WYnXcSWQWNec7tQnFpCT5OOVVsEp01LEdVhYpPIgwcn5qdxPETyWhobjCNG2TbIbFGRceYtiN23klkta0D4GZhyefMrCy4V9ZWVoOxwm4UoowZW4gHD+vUtsQ6RzBmsuuvY5bbisLiIjUuzwPnbxbz0lcv+t72obunG9cLb6gDntxYbBQ0Yya7/tnKbJDDnhwc5WA4MDSw7jljJrtCEvOf7pkNHybGEBt7FE2/98/WZ4yZ7ApJzFvdZhhXcXLtJluK/IKr6v44cN7w2MjaIfBlq2lcMGayKyQx271nvltTjUMxcXj3ftj/t8Y3fDI+Oj7qHzcwZrIrJDFLkFX37qiDnFypBX4D2Nza7A/889w0TqelIT4hEfWNDeoAuNG8QIyZ7ApJzEK2Ds3PnwX9bcbM/AxulhT5f5txJu0set70rJtnYMxk17ZiJvqfMWbSBmMmbTBm0gZjJm0wZtIGYyZtMGbSBmMmbTBm0gZjJk348AtngGL1TxPNNAAAAABJRU5ErkJggg==" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='QuickBooks Self-Employed' /&gt;" SearchSteps="Selector" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="541, 547, 91, 25" ElementType="Text" FriendlyName="'Invoice no.'" FullSelectorArgument="&lt;webctrl aaname='Invoice no.' tag='LABEL' /&gt;" FuzzyAccuracy="0.8" FuzzySelectorArgument="&lt;webctrl aaname='Invoice no.' tag='LABEL' type='' class='' check:innerText='Invoice no.' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF8AAAAdCAYAAADM3LCSAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAQBSURBVGhD7Zf5TxNBFMf9uzSiiEoIIgiC4IFCkIiIBsMtEYwE5ZJDCB6JIAgIgUhiUDnkjIJQKESLIle5SqGFePwBT7+TzLpbt7CFhvWYH75p9817M28+M/N2dtf69zUS0kcCvo4S8HWUgK+jBHwdJeDrKAFfRwn4OkoBf3ZpliIio6iguEjhtJOqb6yngGNBNGYaU23/lyTg66g/Dv7/pA3hL9sslJp+je4UFVJHdweFn42g3Xs8KDgklBqfNZLtyyqtrFvpRtZNik9IoKXVRakvCLsXu7j5eTN7ttgt9KiqgsXzfiqqKslqX5Zi1Ha+eclMJWWl5Ot3lMUhD/SJ8bnP+KSJUtLSaN9+L6aE5GQyjBqkdjX1vOllY/W+7aOc/Fw67O3DYtHPp+mPCt+Z+ZlNc3BVmuAjwVOnz1DN0zpqedVCV+Ljaa+HJ7V3tTO/1tet5OPrR0NG5WQB8kTYSRqfGieLbYnSMzLYBMsf3meLiUXFZGFHO4+Rw5+em6LomBg2acRhrOuZmeR54BDbAPABRLQjL+THc8RYXb1dUj6OQpzXQW8KCg5hfaJvjIG+EpKSpJx4Dsiruq5GygEM7v5ckK0ugGb4xvfGX36LsxQZdV7ymzJPUvi5SKqsfiz58NhbOTksOewSTBTQuc/aNzu9aHvJQPKFdIRfXfuEjvgF0ODIkBSH/rBT09LTGRiAwjgr6ysKn9t5uQqIjgJ87OLCkmIFQHkOyLH8wb3fGNi/2tipRW7DY8OS3RVpgp+SmspKBvfjdgj/kXheQb6i9CDxwOMhDOpGpWnOYqYLF2OlRZJPfGXNyk4FH0cexzX6wUj+/oFUWl5GnT2dCuUXFigW0lEcvuPp4Hb8LljnKfZSnJSf3M/02cRKp3zTuSJN8B0nr2ZHotgFvPQAIk4DTgX3V5uAY19y+FiYqOhoKR81cVDOhNLQN9C3YSx+ndk5EzXAjrxcldvg8x2MMsHbcRoAmz+7Cl/L5JwB1CJnsXL7XwGf10bU2AHDACs5fFJayg5KBPrQWnYam5tYXHt3O3vZb+Xoa4GvpezUNdQp7FrlNvhQv6GfQkLDKCs7m4EBWN622QsXNxTY5PDxrPbCxQsU10GMP7swwxYc5QkljvsAFF6ksE/MTEh2ubTA3+yFixvV4Mg7RbxWuRU+3yVIHAkjcd623asmbPyadzUxkfXDoeGFiWdcGXEisJC4CWFRG5oaFHnIpQU+nrVeNXkc5iDvz5ncCh/C8ccOxymQ2yG1j6za+lqXPrIw4di4yzRoHJTaIXxQ4cMKiwkfXIXbutrYDpX7yaUVPqT2kYVTKy9F24IvtLMS8HWUgK+jBHwdJeDrKAFfRwn4OkrA101r9AOlTcBMoZyBdwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Typing In The 'Due date'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="786.4,255.2" sap2010:WorkflowViewState.IdRef="NTypeInto_11" ScopeIdentifier="4e6d84e4-6c94-4b1a-8303-2c5a87f4f97b" Text="[Now.AddDays(45).ToShortDateString]" Version="V1">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://selfemployed.intuit.com/home#/app/invoice/new" DesignTimeRectangle="642, 628, 175, 30" ElementType="InputBox" FriendlyName="'05/07/2022'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' name='DueDate' /&gt;" Guid="deba9a95-9989-4ebe-924c-3dfaa0bcce1b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALMAAAAiCAYAAAAULugVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAALzSURBVHhe7ZhBalYxFIVdl4JrUNxArW5CdAtCXUbBTSi4gA5EJ9KROpA6cQFPjnDkEM5N8v++/sVwBh99TXJv7nv3S9De+/nrZgthBSJzWIbIHJYhModliMxhGSJzWIbIHJYhModliMxhGSJzWIbIHJYhModluHOZr79eb0/Pn2/vPry383tz+fZye/Hq5fb9xzc7H/5fpmRG4yHA/QcP//Do8ZPt6uNVd43SkwdyQWZIrWMaj981hgdA1yjVfozTfHgPvA9j3buRUV1kNqd7j1Md6hUZykxJVTg0sW0Q1/XEbWGMSkFh2FSKUYmjcO3rNxd2Hjnb98BemhuxTqrZumZz4hljWquLDfMMZeZH10Y4cY+RGUKcnT/7eyh4U7UyornV7aYgrrcO88zNvdp63fhsXbM5AZ4xhjmuq8bDHEOZ0UD3cdtGshFtw3tgrTbeHRyAPdwtqFCYan/maHO38D32qgu4nBXV9w5jujJTENeEtsFsGMaUqtHMrYKgkXpA2rW9g4J9tB43PyMTBdW9/qUu4HI6et87jJmS2TWBMlNWrEUT8JNrKJiLxxxy63qsa8cA66iaPDvPWit4IFtxj60LVDkd2Kd3IEOf3WSuQGzbSDa4jT1WGh6aSgKMu7wKa3J5jq2rl7OFIo++Z6jZ7Z8ZFW4dnt1N5cQHrAPzOq5zTjZAoVwsGUl3TF0R+fTs9h/ACiczcjoB3FqAPbCXazZv5UoExOpfTFpmpDu0roh8Nwxldo1kswCeMYZm6O8EzVLpKYBrcnXTIbc7OKyjupUBcrm6AONH0h1S12xOEJH3ZSizE8Y1EWNojDacB0GbhedKLs6rCJRfcxCXX6GElVSUaSQdmK1rNifzVbWHwxnKTNgk4G5JQHm4DmhTOT9qIGI0h1vPQ1bVAhCnh1ChjLqP4uJGdc3mdN9J6b1TqJmWeS/QyOpWvg0+f/lkx8N6nFzmEG6LyByWITKHZYjMYRkic1iGyByWITKHZYjMYRFutt8to+y6snGjzgAAAABJRU5ErkJggg==" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='QuickBooks Self-Employed' /&gt;" SearchSteps="Selector" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="541, 632, 77, 25" ElementType="Text" FriendlyName="'Due date'" FullSelectorArgument="&lt;webctrl aaname='Due date' tag='LABEL' /&gt;" FuzzyAccuracy="0.8" FuzzySelectorArgument="&lt;webctrl aaname='Due date' tag='LABEL' type='' class='invoice-date-label' check:innerText='Due date' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFEAAAAdCAYAAADSFYAhAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAQCSURBVGhD7ZfpTxNBGMb9uzSiBgWNIpcQIpcQBDmjQkCuEARRbggSFJSjQgRFLIcggiAkfqBGKiIg9yX3EY8/4LXPmKmz7SJtd5WY7Icn3Z19Z/bZ38z7zvTQ7o8d0qRMGkQVpEFUQRpEFaRBVEEaRBWkQVRBGkQVJIE48HaQDh9xstKx484UHRtHL3u7aevrpmSAg1JTcxOFhIbR/Mq87PO9ND49RlU1D2lta1X2uSOShXj1ejyVld81Kzsnhzy9LrBnhcVFtL69JhnkIOQoxMLSEkpOS/37EGFQbIc2djeotLyMjjqdoObnzVbP/7X+S4jQ4uoCXYmKpuiYWFpeX2JGYAjGxDi5dkzCk5an5OPrx96B3xpdrU2r+vPsBN1ISWFlxd3di1pftFlBRJnRt+spNOwym2i8wz8gkE04nnFPaOfi36nEG2QXRKj2UR37kA+fjDZDxH1m1k0663aeKqruU99AH/vFfVpGBq1urUj6ixqbGiO/iwHk7eNLzfpn1NKqp/DISIqJizND3Pm+TXX1Oga5qKSYet/0kr6jlSIioxjQNhN0gDQMD7HJQHv3624anxlX5I3Lbojtne0sBrG2Quzp72Hgh94PSeIMw+9YO56L7VyAU1F5j60MTBpvn1mYprDwcDNEZEVCUhKr3+LGh7igS6ESf7iGN3jEvaPeRNkNkcfYChEgCooLKSg4hDpfdbGZ5uro6mCALPtzrWx+oWsJCXQ7N9fqVICM2K8mch9ifxGiEm+i7IaIlLIHIr9Gn72EtNnYWZeMAQEQQAGY5TNkhCVEgJqcm2QQKqsfmNOZQ0OMCFGJN1F2Q0S98PD0ppGxEQksMUZs59fcuBi3n/4EETWNQ8SKQg1EHYN//AIg0jssIkLybjmIjngTZRdEvjsnJCaygstNZGZnmXa437OFONQsGMbqQDr5BwbT9PyUOcYW2ZrO2HyQenfy80z1cdmq/14QlXgTZTNE8ZyI3e5X2zoDCLAAx2OxOzqfdDWvUBRn9Gs0jYtVw+OMo0a26+oa6s1tlsK/C6x8xPK22cUZtkNziNx3/2C/pC82i3NuHntCxL0Sb1yyEOX+sfBUsdwBARQmUtLTWYoh3bEj4rzGIWLVorYgLivnFoNcrathJgEDUPh4luLAENvQ+JgVfKQovIgrUTwGYXy8G55PuZyWQIM/gMW5EEccJd64ZCFaysX1DMWbUhgzvf1tSzIAgOJAi3SCEfzHNhgN7CM4RAgHVxxgEYcx8YH5hQU0tzQnGU9OiMktyGM+IFwDBoeIGLwT74YHxCSnprLVxCcVxx3EjU58ZJkDD8gstCnxBkkganJMGkQVpEFUQRpEFaRBVEEaRBWkQVRBGkTF2qGf3R68lSS5C0cAAAAASUVORK5CYII=" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <uix:NClick ClickType="Single" DisplayName="Opening Section To Allow For Project Details Entry" sap:VirtualizedContainerService.HintSize="786.4,157.6" sap2010:WorkflowViewState.IdRef="NClick_14" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4e6d84e4-6c94-4b1a-8303-2c5a87f4f97b" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://selfemployed.intuit.com/home#/app/invoice/new" DesignTimeRectangle="84, 709, 175, 20" ElementType="Text" FriendlyName="'Add product or service'" FullSelectorArgument="&lt;webctrl aaname='Add product or service' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Add product or service' tag='SPAN' type='' class='add-label' check:innerText='Add product or service' /&gt;" Guid="1a462e26-83c4-4998-855c-39daba1a4144" ImageBase64="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" InformativeScreenshot="08dbe7a5795fa395ecd3df9bfc3822fc.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='QuickBooks Self-Employed' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[in_Hours]" DisplayName="Entering Project Details For All Project Codes" sap:VirtualizedContainerService.HintSize="786.4,1056" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+              <ui:ForEachRow.Body>
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="752.8,938.4" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If Condition="[in_Hours.Rows.IndexOf(CurrentRow) = 0]" DisplayName="Adding Project Description (Details)" sap:VirtualizedContainerService.HintSize="711.2,416" sap2010:WorkflowViewState.IdRef="If_1">
+                      <If.Then>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Adding Details For First Block" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="333.6,255.2" sap2010:WorkflowViewState.IdRef="NTypeInto_12" ScopeIdentifier="4e6d84e4-6c94-4b1a-8303-2c5a87f4f97b" Text="[&quot;RPA Services_&quot; + CurrentRow.Item(&quot;Project&quot;).ToString + &quot;[k(tab)]&quot;]" Version="V1">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable BrowserURL="https://selfemployed.intuit.com/home#/app/invoice/new" DesignTimeRectangle="94, 650, 557, 45" ElementType="InputBox" FriendlyName="'INPUT idsDropdownTypeah…'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' aria-label='Product or Service' placeholder='Product or Service' /&gt;" Guid="105a6fe7-82f0-4448-af49-405c201f102d" ImageBase64="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" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='QuickBooks Self-Employed' /&gt;" SearchSteps="Selector" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target DesignTimeRectangle="38, 660, 50, 25" ElementType="Text" FriendlyName="'1'" FullSelectorArgument="&lt;webctrl aaname='1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='1' tag='DIV' type='' class='grid-col row_num' check:innerText='1' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADYAAAAdCAYAAADhLp8oAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAACSSURBVFhH7c+xDYMwFIRhRnPlAegyAEKKlBEyg6ksVqCiZgNXngIlA6SKhHRgiYLextJ7ur+6K78GSiNMWoRJizBpEZbfD9G1MC6e/97qwLYDNXawxuiB/dcA31uYhNIDixgSxj7wXgKmpyKYf3mEb9ofzHpg1wgrEmH5EVYkwvIjrEgVYXUjTFqESYswaSmFATsuGCtF8Mbg9QAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                          <uix:NTypeInto.VerifyOptions>
+                            <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionTypeIntoOptions.Retry>
+                              <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                            </uix:VerifyExecutionTypeIntoOptions>
+                          </uix:NTypeInto.VerifyOptions>
+                        </uix:NTypeInto>
+                      </If.Then>
+                      <If.Else>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Adding Details For Subsequent Blocks" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="333.6,255.2" sap2010:WorkflowViewState.IdRef="NTypeInto_14" ScopeIdentifier="4e6d84e4-6c94-4b1a-8303-2c5a87f4f97b" Text="[&quot;RPA Services_&quot; + CurrentRow.Item(&quot;Project&quot;).ToString + &quot;[k(tab)]&quot;]" Version="V1">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable BrowserURL="https://selfemployed.intuit.com/home#/app/invoice/new" DesignTimeRectangle="95, 789, 556, 45" ElementType="InputBox" FriendlyName="'INPUT idsDropdownTypeah…'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' aria-label='Product or Service' placeholder='Add another product or service' /&gt;" Guid="6664c4de-835e-4666-9af4-2121863364f1" ImageBase64="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" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='QuickBooks Self-Employed' /&gt;" SearchSteps="Selector" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target DesignTimeRectangle="39, 799, 50, 25" ElementType="Text" FriendlyName="'2'" FullSelectorArgument="&lt;webctrl aaname='2' tag='DIV' /&gt;" FuzzyAccuracy="1" FuzzySelectorArgument="&lt;webctrl aaname='{{(in_Hours.Rows.IndexOf(CurrentRow) + 1).ToString}}' tag='DIV' type='' class='grid-col row_num' check:innerText='{{(in_Hours.Rows.IndexOf(CurrentRow) + 1).ToString}}' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADYAAAAdCAYAAADhLp8oAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAFESURBVFhH7ZaxSwMxFIf90zIFCgXhoOB2CM10dOjUSRBu0sXgcJOLdJAbSjanrEJB6CAK5Qa5QulWOMgq/MzRtEPFpfgiOfJBhvtdlo/Hey9n6ChRLDSiWGhEsdCIYifTVFC5QNJjYIyBn6fIZxXMl/tPBK2YWUAOrFBP4HamMX/RUDcC3AomdwsYd40CUrH6KbVVylCuXeCoH9s8RblyAQGEYlvo6z74sMTGJQeWD0hs1eSr+ybgX4bH9nlsK9ZH8eECAvyL7fvuskTtIgr8ipkK0xEH4xnUUd/9Nf7EmjnkxU5quqSchzv8iK0Uxu0eG1xBE1dqD7mYeSsguF3MwwLv9IU6QCu2VshaqZHChvilcQyhmN1jE9tTdqyLXELe/zz6010lgE6s0ZjYJdy+D387nVvQPohioRHFQiOKhUZHxYBvjUkCP/7sTfcAAAAASUVORK5CYII=" SearchSteps="FuzzySelector" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                          <uix:NTypeInto.VerifyOptions>
+                            <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionTypeIntoOptions.Retry>
+                              <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                            </uix:VerifyExecutionTypeIntoOptions>
+                          </uix:NTypeInto.VerifyOptions>
+                        </uix:NTypeInto>
+                      </If.Else>
+                    </If>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Adding Hours" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="711.2,255.2" sap2010:WorkflowViewState.IdRef="NTypeInto_13" ScopeIdentifier="4e6d84e4-6c94-4b1a-8303-2c5a87f4f97b" Text="[CurrentRow.Item(&quot;Hours&quot;).ToString + &quot;[k(tab)]&quot;]" Version="V1">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable BrowserURL="https://selfemployed.intuit.com/home#/app/invoice/new" DesignTimeRectangle="816, 924, 80, 45" ElementType="InputBox" FriendlyName="'1'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='number' aria-label='Quantity' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='number' aria-label='Quantity' parentclass='ha-text-field validatable quantity' class='ha-input' aaname='' /&gt;" Guid="25be5df7-51f0-4c9d-87f1-b7867d30ada9" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFQAAAAxCAYAAABEUo4oAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAFmSURBVHhe7dsxSsNgGMbxHi1TD+DmATr1Et7ALhbPIHgBqSJCSaEQECdxcEvF4tTJIbzySBNi0kDTPIPD/w8vpCXTj49vyjsKsgaouRbo5mMb6+wlFo9p3D0smQMjGxnJqtkf0Ne391itn+Nz+xVFUez/pWaykZGsZFavApW2XgDy+GQls/pJrUB1hKVO/ZKZ7MoqUN0LnM7+yUx2ZRWoLls6rbodoIYANQeoOUDNAWoOUHOAmgPUHKDmAD3Qbj2Ls2QW2f53nwBttMvmMRknkQA6sO88VleTGCfCBHRw2aUQx3F+sYjVzRTQoWXX05gv89/n/BZQa4CaA9QcoOYANQeoOUDNAWoO0H8UoOYANQeoOUDNAWoOUHOAmgPUHKDmADUHqLmDoHxjf1qd39izBXJanVsg7Cn1T1ade0qKTbrjko2MZNW5SVcmbR1h3Qu6bJn2yEZG9ZNZ1gKlYY3un9JgXJPGDzF17yBvs1P0AAAAAElFTkSuQmCC" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='QuickBooks Self-Employed' /&gt;" SearchSteps="Selector" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="38, 936, 50, 25" ElementType="Text" FriendlyName="'3'" FullSelectorArgument="&lt;webctrl aaname='{{(in_Hours.Rows.IndexOf(CurrentRow) + 1).ToString}}' tag='DIV' class='grid-col row_num' innertext='{{(in_Hours.Rows.IndexOf(CurrentRow) + 1).ToString}}' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='{{(in_Hours.Rows.IndexOf(CurrentRow) + 1).ToString}}' tag='DIV' class='grid-col row_num' innertext='{{(in_Hours.Rows.IndexOf(CurrentRow) + 1).ToString}}' type='' check:text='{{(in_Hours.Rows.IndexOf(CurrentRow) + 1).ToString}}' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADYAAAAdCAYAAADhLp8oAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAFjSURBVFhH7Zaxa8JAFMb7p2U6KAhCQKh0CILSIXToFCg4uWXKJB1cSqYWJF3MlKlTQHBKQRxKBrEgCMJBQRC+vtM3CJ1fypX7QYZ8ueXHvftyV/inODHbcGK24cRsQ1xML2eI71tQngdPtRCMMqz2/FEQWbF1hlB5UP0YWVGimMYYXJNgJ8FC8xohBMU0iogk2iTxzZHhM0VAuxe+7TiQQVCswuTWR/ep4ndmXyAyYtMNBzI0Wh6HXYVs6NNZC5F9cShEQ2ILJKY8Tk+A8ceBczmaEdMrvFN5lHmKYV+RnI9kLtsejY7iiWONtGdKZYzqyJkAzYsRm9cB7ZrsOZMT284QtRUe8t+1Xj93z2JbDgQQ3LEK4zaNXC9FfTlymoqkY/IX1BxJIDqKep7ApyZUd+ebR5lPEN1QeZi6X/MiIcTPmF5mGPUu7oqPE5TC/zDDn5RHEzgx23BituHEbMOJ2QXwA10SBegUG01LAAAAAElFTkSuQmCC" SearchSteps="Selector" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                      <uix:NTypeInto.VerifyOptions>
+                        <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                          <uix:VerifyExecutionTypeIntoOptions.Retry>
+                            <InArgument x:TypeArguments="x:Boolean" />
+                          </uix:VerifyExecutionTypeIntoOptions.Retry>
+                          <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                        </uix:VerifyExecutionTypeIntoOptions>
+                      </uix:NTypeInto.VerifyOptions>
+                    </uix:NTypeInto>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="711.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Details added for Project Code: &quot; + CurrentRow.item(&quot;Project_Code&quot;).ToString]" />
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEachRow.Body>
+            </ui:ForEachRow>
+            <Sequence DisplayName="Saving Invoice" sap:VirtualizedContainerService.HintSize="786.4,816.8" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NClick ClickType="Single" DisplayName="Clicking Dropdown To Reveal Save Option" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NClick_15" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4e6d84e4-6c94-4b1a-8303-2c5a87f4f97b" Version="V1">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://selfemployed.intuit.com/home#/app/invoice/new" DesignTimeRectangle="1874, 984, 44, 45" ElementType="Button" FriendlyName="'BUTTON'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='button' class='*combo-button-dropdown*' parentclass='*invoice-save-combo-button*' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='button' class='*combo-button-dropdown*' parentclass='*invoice-save-combo-button*' aaname='' /&gt;" Guid="9eeacb5d-dd48-4483-a34c-a4ad03b88154" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAAxCAYAAACcXioiAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAL1SURBVGhD1ZhdSFNhGMd30UUfFwlJ6RIFy2qwughFwQj6VOoqquvs4yaz7usqRVm1xaBhgW4sml50pQYRueVQ08KB0WU2m5V3SWBYrmJ7Os/TeWkd37OznQ923j/84LBzePb/beds5z2OTCYDIpDNZrnYVoBXloelAqu/fkiscvchvELF4nCHq2ij7KbDEiq7N4LL54TW0AFoH2qDwJQXJlNxWPm5sqaMHiwXUONofxN0xm6QjLJUoWBKJsCo8ZTB1ZGLEE9G1xTkoUzJBRgu33b6RpJL71TL8mIbAcaZgVaIvX8m19OOw/2wijZ4w0pFQ2A3RGaD1EsrthRA6rxbIZi4T93yxbYCCEo80vgmbC2A1EunUzTPNWF7AeT0QIv06zRHPZURQgDpjF2nnsoII+C664T4fJS65kYYAaRj5AJ1zY1QAtWezXTvlBuhBBDltSCcwJH+RroVZzEkUNG9nvu61eSeRroFsPz4hxew4045d38+Hr+NQPODfdx9hYCLIhZdAqw8JrH4uigJLI9ZXP6kW+Ly0DmagdEl0CEtQHJTqAQrz+J/eYt7nBYtoWZ5goFTqFgJs8oje6Q/NRZDF3GhEmaWRyp7NsiTDAogWhJml2ewGBZA1CSsKl/etU6eaJIAopRY+v5F3vobs8ojbn+1PNVEAUQpweKf9HCP18uxYJM82WQBZPBNmOaxJD6/4h5nhPbhNnm6BQIIk5ixoDwSmPbRfIwlAghK8F43A3YXgLFMwCoO9dVD+neaOmOEExB6PeDs2QRTC+PUl0UoAXyKrYwwAnXebf9dvCzCCAj9XOhU5Dikvs5TT2VsL9DY64Lnc0+pIy+2Fqi9vQUisyHqpxbbCuCqKzjTS93yxZYC++/t1PzkWWwncHbwBIzmOeeVsY3ALl8FdEk/lWq/NmopuUCttPS89uQSjCVHqUexKZnA4b4G+sSnP07Q++uNpQK4+MZH4nv9NXAyfBCuDJ+nxchEagy+pZfpfY3m3/MJIQPwB+5qMJQTh20qAAAAAElFTkSuQmCC" InformativeScreenshot="b5112b45111d526dfbe23c1ad7d0cb2a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='QuickBooks Self-Employed' /&gt;" SearchSteps="Selector" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="1723, 984, 150, 45" ElementType="Button" FriendlyName="'Email'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='button' aaname='Email' innertext='Email' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='button' aaname='Email' innertext='Email' class='ha-button combo-button-action no-connector ha-button-primary' check:text='Email' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJoAAAAxCAYAAAAiJLA6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAPJSURBVHhe7ZzJaxNhGMb9Qzx4UERRURT39SC0KhQRF9TqzeXoenGlFwte9Kanpi5NVVLFuoALaE00VuupoBgKSmxrbzZuVDGvecYsM3lnstvQb55f+fGS4f2+BL6Hb2aaZZIQMg4waGRc+K9BS6b+CAE1CdqvP7/k5XBE2vsvyvHwQdlxt0nW3lgkcy9NkVmBydTHAtSqgvb680s539cq2+6sV09AKQSoFQUNu9epyBFZeGW6mphSuwC1rKDFEx+tHWz1tXlqQkrdBKglB63n02PZ82C7mojSQgLUkoLWFeuUpltr1CSUFhOgFg1a8F27LA/OVhNQWooAtWDQut53yprr89VgSksVoHoGrSf+WBpDy9VASssRoLoGLZ74IPsfNqtBlJYrQHUN2rm+M2oApZUIUFXQIoNPZFXnXDWA0koEqCpoJyOHVTOllQpQHUF7/Tkqy/ivDFpDAaojaLw2q7O9YUlYKzEq0d7M8aAMWMdEBmK23gkiQM0GLTGWkK3d61SjMWYXsTD1XMyzw6PpV5Faj+GW9HHDghYdCqsmo5wAQfPFjtbWf0E1GaUtaBNrwQwL2rHwAdVklAxaXQSo2aDtvr9JNRlluUHL9scklHoc+mI9+MdYWM6m+xzHHae8PGOxdE8Gl14/nDrxGf/8JqOsImgDjjClSYUt6nbcJUDOMDpxvBbTg5ZMJmXx1RmqyShtQfPEtlM5+//tajhuvzME2cW39efuGG3HvwRzxwItEh2zWj2e0+AdLb/BOKsImnOBcwvvDI9t57LP42X2VJoLsS+CtuDyVNVklJ7B8dB10WFu4R07V8pCQfM+ffosaA2hparJKOsVNHUTkI/PgtZ8b6NqMsq6BM3jWgz69dSJb5jnNxllvYPmuJ7LzeG7oLX56J2BgmQCUZOg6btUjc+C9mKoRzUZZZ2CBvPDZo3z66nzx+/vsvl2g2qktBoBajZogJ9Ho7UWoDqC9makVxZ3GP4OAR1XAaojaAC/EpTfTGmlAlQVtOepmwL+BAKtlQBVBQ2c62tVAyitRIDqGrTBr3HZ+3CnGkRpuQJU16CBJ/FHsqFrpRpIaTkCVM+ggZuxa7KS31qnVQhQCwYNBN8G+BMJtGIBatGgAexsG26uUpNQWkyAWlLQwNPUNds+3iDQMgWoJQcNDH37ZP0q94rgHDUhpW4C1LKCluHF0DM5/fyoLOmYqSam1C5ArShoGd6MvLJ2uC3djeoJKIUAtaqgZfj5+4e1ywX6L8qJ8CHZdW+jNISWyYIr09QTU38JUGsSNEIKI/IXFPmHhXvoWHkAAAAASUVORK5CYII=" SearchSteps="Selector" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+              </uix:NClick>
+              <uix:NClick ClickType="Single" DisplayName="Clicking 'Save'" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NClick_16" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4e6d84e4-6c94-4b1a-8303-2c5a87f4f97b" Version="V1">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://selfemployed.intuit.com/home#/app/invoice/new" DesignTimeRectangle="1742, 883, 158, 21" ElementType="Text" FriendlyName="'Save'" FullSelectorArgument="&lt;webctrl aaname='Save' tag='SPAN' /&gt;" FuzzyAccuracy="1" FuzzySelectorArgument="&lt;webctrl aaname='Save' tag='SPAN' type='' class='menu-item-label' check:innerText='Save' /&gt;" Guid="098a0549-44d9-4acf-8632-1fe6bfe22f07" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKIAAAAZCAYAAACy//WtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGCSURBVHhe7ZcxjgIxDEX3IBxhT0nLJbajmltQIK4QTT3tQEeVTUjiOHbQbIFYi3xLr/E4mebJjr++f3YegP8GIgITQERgAogITAARgQkgIjABRAQmgIjABErEw3L1Ku4nfxB1ALwSJuLen+/Ruqs/X1iRc0FE5yeeA+DFVBGjcCFm1xYA8A4gIjBBFfFy8reHimI096DaGlzgaY2Zzj1Z9tuyr7mNu8AYNMuKXlTC25B9Txz9HL5wWco5ymW5GuECSdB6pzoXQWcekkZEIstAsR51TUOSs9aVxYeJXDof1aQzUlY6i019KPoiEkUo2aGyeDK4sKKzpe7HxrWUXUWvG4NPZUPEgHzXFYGaLik7osx1upy8FwxNu6z0xqHobPKd90CN3QR1waW9I5FF7fxzWv+wMIGPgkRMgkkxtCx6wajjW4rYbsR61Ja7+LmSQ6ccCzGa9duvJwRJm2N2WUYpIqt9KlYjawy8DUdk+40IwBuAiMAEEBGYACICE0BEYICd/wUEiU0nbHv47AAAAABJRU5ErkJggg==" ScopeSelectorArgument="&lt;html app='chrome.exe' title='QuickBooks Self-Employed' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="0" />
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+              </uix:NClick>
+              <uix:NClick ClickType="Single" DisplayName="Closing Invoice" sap:VirtualizedContainerService.HintSize="333.6,194.4" sap2010:WorkflowViewState.IdRef="NClick_17" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4e6d84e4-6c94-4b1a-8303-2c5a87f4f97b" Version="V1">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://selfemployed.intuit.com/home#/app/invoice/new" DesignTimeRectangle="1891, 167, 16, 19" FriendlyName="'SPAN'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;ha-page-modal&amp;gt;div&amp;gt;header&amp;gt;ha-page-modal-header&amp;gt;span&amp;gt;ha-page-modal-header-item&amp;gt;button&amp;gt;span' isleaf='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' isleaf='1' tag='SPAN' class='hi hi-close' aaname='' /&gt;" Guid="3d6b9d96-2c0f-4fdb-b21f-325beebc79e5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAYAAAALHW+jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAEDSURBVEhL5dM/C4JAGMfx3m8hFRRCL8AliCBycHBpbmhpaWmRoIamJl+Ai0MFDkb8usfOP5fX+QQ19YUDecIP2p0tfLnfgml6k1cf9HJPASbhCo41gndM5IRRvMPc7sNZR3JQgDGC2QjtTl8sJiqx7B7bx/78HJevfI+wnVbQw0X+oEnBPASxnIvUTeGgBoxSQcqENmBUHaQ0aMrAKD1IKegQ3V4zRr0HKYFuJjkq1sCMUWaw+prZath90XtQ+c9ceMwjpQd1G8A5UqI6aNrNV1TzRakg52g0oCXIwfIMqARjbMZMLK+KWi6C63NcPmFywmLs87A8QmculmHtCb/X34HAA/EPldsho9R4AAAAAElFTkSuQmCC" ScopeSelectorArgument="&lt;html app='chrome.exe' title='QuickBooks Self-Employed' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="1719, 134, 150, 60" ElementType="Button" FriendlyName="'Help'" FullSelectorArgument="&lt;webctrl aaname='Help' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Help' tag='BUTTON' type='' class='help-button btn' check:innerText='Help' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJoAAABACAYAAADiWm5eAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAASTSURBVHhe7ZxbTxNBGIb9v3qheCFqVLCAQcRTNIYzHqOJEL0gakDEeAEi4dAQUdAYNZF6DVrvRt5lZjs72z2ULl+38D7Jl5RvZnfi+mSO2x5RhAhA0YgIFI2IQNGICBSNiHBk48tXxWDsd7BHIyJQNCICRSMiUDQiAkUjIlA0IgJFIyJQNCICRSMiUDQiAkUjIlA0IgJFIyJQNCICRSMiUDQiAkUjIuRKtPX1L+rJkzF1ueeaOne+Q51oafUCn5EbH3+uvn37rmuTZqLhopXLZTUz884T6eixllTR03PduwbXkuagoaJNTLxU5y90VJUJ0dbWpdovXqpahsC1uAfJPw0TDYK44vQPjHj5YnFVbW1t6ZpKbW9vq49rn9SrV1NqYHA0dB1lyz8NEc2V7MbNO2pj46suTWZpaUUVOroD96Bs+UZcNFeyufcfdEntPB17FrgXZcsvoqK5kmWFfU/Klk/ERMMK0Z74ozeKolz+pxYXl9Xr6RkvFhYW1afP67o0DHpFc1+0wdVo/hATDdsRRgbMr6JYW/usui5d8evaEddbYZ5n6qGtZmLzhZ5vFibVps4dNMREw96XEQGT+Si6u6/69VpPX1Bt7V3+3wj0dNXAYsLUwZ5cFiwN6XZjBPAlOTailnSuVihaRmA330hw794jnQ0DiUy9vv5hnVVqcnLaz3d0XtbZMNgeMfVwylAvFC07RETD0ZERYHmlqLNhBofu+vVsUfDZ5FtOtupsGHuxgaOseqFo2SEimn28FMevX5ueVG5vNP3mrX99b+9NnQ2DjV5TL4vhk6Jlh4hoOBTHgzxztk1n0uNuiWCxEAVOE0w9tFkvWYhWKTcRrlddtKIa8Op3q5elKvcZih4Z8oiIaHgDAw8HE/1amJp64z9YiBO1ELDB+Sjqo816qU80I0r1GLD+KUmiFQrBayux915UGlHROrt6dCaZP3/++g8UCwAMq2kwq9ZMRUsVwf/0yrUReUuqeNF2o/CipPM7LFcWPc3Ss4kOncdPnNKZZL7/+Ok/zPGdxURaMDzjmkyHzlRhCxUc9oKEyxJFqyJTpSet1kb+EF8MlEq/dTYeLAgwP0OkGTINpp2GLgbsHicmzPCZJJo9zPqUJlUhrjxniIiGHsk83NnZeZ3Nntm5eb+dhm5vpBTNDIcULSPsDdtbt/t0Np699GjDI/f9dtwtkr2wZ9F8CdINa0mixQ+dwTlgXhERDdhHUPiV5iTsbQ18TiJvR1CV+Z0jmydhsG6iaDvBxUBK7EP10dEHOhtNraLtx6F6PaK5ooTCumeSaIWCacON5ujNgJho7mtCSfKg3I449us1ofpE26VSXolA77RDkmjeHMyd93HDNhoIYz+srLDvmSRl8+CI1uSIigZc2VaKq7qkdg72q9wUrW5c2R48fJxqgWA4HF9OoWiZ4MqGwNYH9tnc46bD+XU7ipYZEMReINiB4yqccR7eLxBTtEzBChHbEfYxVVLwJxGaj4aLZoPdfP7Iy8EkV6KRgwtFIyJQNCICRSMiUDQiAkUjIlA0IgJFIyJQNCICRSMiUDQigFL/ASeyh3l1lTnrAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+                <uix:NClick.VerifyOptions>
+                  <uix:VerifyExecutionOptions DisplayName="Button 'Create invoice'" Mode="Appears">
+                    <uix:VerifyExecutionOptions.Retry>
+                      <InArgument x:TypeArguments="x:Boolean" />
+                    </uix:VerifyExecutionOptions.Retry>
+                    <uix:VerifyExecutionOptions.Target>
+                      <uix:TargetAnchorable BrowserURL="https://selfemployed.intuit.com/home#/app/invoice/list" DesignTimeRectangle="1667, 306, 172, 45" ElementType="Button" FriendlyName="'Create invoice'" FullSelectorArgument="&lt;webctrl tag='BUTTON' aaname='Create invoice' innertext='Create invoice' /&gt;" FuzzyAccuracy="1" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' aaname='Create invoice' innertext='Create invoice' type='button' check:text='Create invoice' /&gt;" Guid="0e85dc24-3a18-431f-9033-e7929bc2e7a6" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALAAAAAxCAYAAAB6WyMjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAPiSURBVHhe7Z0xbtswFIZ7kE6dO/UqPUDvktWXKNAhU9Cp6AUyBOkRjHTNmmTLxJqyfuqRfKQthnL4iv8HvqEWRcqPnyg6KKAPjmEMhwIzpkOBGdPJBP7196f79vur+/Ljk/v8/SMh74530Tvp3UwTCbz7c6V2QMgoeEdlgsDebu0EQkZDrsRBYL9Ea40JGQ3vKhIE5p6XWMG7igSBtYaEjApCgYlJEApMTIJQYGIShAITkyAUmJgEocDEJAgFJiZBKDAxCUKBL8H9rXuZqvzs7u6V4+/MzdN0cc49XavHRwS5qMC7x+d5tCSvt26ntP9fkN/75XG0//F37R7ma3Nu727UNuOBXETgorhp3nMF2O/ni9hgleQK3B1kc4FTeR/2aZvjCpB/fmG2FJh0B9lW4LDy+Az+eKLApkA2FTg8mlZKgfOm/WIQK74B8m1J+QZZrmNOtOeWe8A46X51zZgR6hYC4x4/i/uO67UcU+ooFon4eq/c3et8IES/3uoWItQf0eeyuTaNIBsKLMRY+SMtCPwqi4KClIXzibcitban+1uEWDOmwgmBH57SyfcRbYuSSnGEMNGTL0/ahy6wdgOIhLZvrE0jyHYCyyKu/HEQrZjJucux+A4Pn4ubBZMbFbEkQ2ULsWZMlarAPrqs8rvrYwnJVKHk9Uoh4+8Y+hbjyRVV1sl/Lv/95to0ggwucFwUuWqlktWPxWgTVha4w5gnBC6uiHLytesTNcZNuohXu95DtJtDuwmqc9ehNo0gQ28hsuJl+zE9Z28jzhG4acyEEwKn56oCi/YQPsgq2unnLmjHs3qLGyO9uSJ61KYRZOgfca0Co+jL+IV0FLg60V0EToVdtgRy7NK5teNZvTsLXO2jEWRTgWUhSgX1TBMjZMoKClQRClQmQe2/JPCaMUuofawXOOpnX7iu0veYEE+jar31dhk9atMIsq3AB5Y9mU/+RUPxfOYJKwoctU/6moop9syhuIkgctWQ/ZfaHzh7zBLqRDcIrP1lIKuRkG+DH3G+fuqK31qbRpDNBZ4451FTe6RFyAlSEvpRJjtN1H/e7yLWuWMW6CbwgaSW6bkT4mbUUhwvqke9ft1q0whyGYFn4tUYSe7cA3WBj2h95XutdBKOYxX7TyY+7e+8MRV6ChwJU1/hQj8hevtqvZXFx3/n3X2n2jSCXFRgQnqBUGBiEoQCE5MgFJiYBKHAxCQIBSYmQSgwMQlCgYlJEApMTIJQYGIShAITkyBBYL4jg1hBfUcG31JErKC+pYjviSNWUN8T58M3dZLRKb6pE/F2+yWae2IyCt5F76RceZFMYIaxE+f+AU/QNsTNIeHoAAAAAElFTkSuQmCC" ScopeSelectorArgument="&lt;html app='chrome.exe' title='QuickBooks Self-Employed' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="0" />
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:VerifyExecutionOptions.Target>
+                    <uix:VerifyExecutionOptions.Timeout>
+                      <InArgument x:TypeArguments="x:Double" />
+                    </uix:VerifyExecutionOptions.Timeout>
+                  </uix:VerifyExecutionOptions>
+                </uix:NClick.VerifyOptions>
+              </uix:NClick>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Invoice created and saved.&quot;]" />
+            </Sequence>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="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" Selector="&lt;html app='chrome.exe' title='QuickBooks Self-Employed'/&gt;" Url="[in_Config(&quot;QuickBooksURL&quot;).ToString + &quot;*&quot;]" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
