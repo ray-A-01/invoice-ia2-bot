@@ -12,7 +12,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1202.4,5312</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1202.4,5219.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>PrepareInvoice_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="78">
@@ -98,7 +98,7 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Task Desc: Creates the Invoice for the client from a Template provided by them. The project data from the in_dtHours databale (columns: Project_Code, Hours, Rate (hr), Project_Details) is used to populate the template and generate the final invoice.&#xD;&#xA;&#xD;&#xA;Note: Invoice Period, Invoice Number, and Total Income are also determined here for use in other steps (workflows) of the process.&#xD;&#xA;" DisplayName="PrepareInvoice" sap:VirtualizedContainerService.HintSize="1069.6,5247.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Task Desc: Creates the Invoice for the client from a Template provided by them. The project data from the in_dtHours databale (columns: Project_Code, Hours, Rate (hr), Project_Details) is used to populate the template and generate the final invoice.&#xA;&#xA;Note: Invoice Period, Invoice Number, and Total Income are also determined here for use in other steps (workflows) of the process.&#xA;" DisplayName="PrepareInvoice" sap:VirtualizedContainerService.HintSize="1069.6,5154.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -138,14 +138,14 @@
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachRow>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1028,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Trace" Message="[&quot;Determining Invoice Period.&quot;]" />
-    <Sequence sap2010:Annotation.AnnotationText="The Timesheet Screenshots have the period in their filenames." DisplayName="Determining Invoice Period from Timesheet Screenshots" sap:VirtualizedContainerService.HintSize="1028,632" sap2010:WorkflowViewState.IdRef="Sequence_17">
+    <Sequence sap2010:Annotation.AnnotationText="The Timesheet Screenshots have the period in their filenames." DisplayName="Determining Invoice Period from Timesheet Screenshots" sap:VirtualizedContainerService.HintSize="1028,539.2" sap2010:WorkflowViewState.IdRef="Sequence_17">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ForEachFileX DisplayName="For Each File In The Timesheets Folder..." Filter="Approved Timesheet_*.png" Folder="[in_Config(&quot;Timesheets_Folder&quot;).ToString + &quot;\&quot; + in_sMonth_MMM + &quot; &quot; + in_sYear + &quot;\&quot;]" sap:VirtualizedContainerService.HintSize="433.6,408" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+      <ui:ForEachFileX DisplayName="For Each File In The Timesheets Folder..." Filter="Approved Timesheet_*.png" Folder="[in_Config(&quot;Timesheets_Folder&quot;).ToString + &quot;\&quot; + in_sMonth_MMM + &quot; &quot; + in_sYear + &quot;\&quot;]" sap:VirtualizedContainerService.HintSize="433.6,315.2" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
         <ui:ForEachFileX.Body>
           <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
             <ActivityAction.Argument1>
@@ -154,21 +154,14 @@
             <ActivityAction.Argument2>
               <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
             </ActivityAction.Argument2>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="304,152.8" sap2010:WorkflowViewState.IdRef="Sequence_18">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <Assign DisplayName="Extracting The End Date Of The Invoice Period" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_5">
-                <Assign.To>
-                  <OutArgument x:TypeArguments="x:String">[out_sInvoicePeriod]</OutArgument>
-                </Assign.To>
-                <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">[CurrentFile.Name.split("-"c)(1).split({".PNG"}, StringSplitOptions.None)(0).Trim]</InArgument>
-                </Assign.Value>
-              </Assign>
-            </Sequence>
+            <Assign DisplayName="Extracting The End Date Of The Invoice Period" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[out_sInvoicePeriod]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[CurrentFile.Name.ToLower().split("-"c)(1).split({".png"}, StringSplitOptions.None)(0).Trim]</InArgument>
+              </Assign.Value>
+            </Assign>
           </ActivityAction>
         </ui:ForEachFileX.Body>
       </ui:ForEachFileX>
