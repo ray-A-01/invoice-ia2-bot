@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+	<p>
+		Hello,
+		<br />
+		<br />
+		Please find attached the invoice for {0}, {1}, for the RPA services provided by Aniruddha Ray. A summary of the invoice details can be found below:
+		<br />
+		<br />
+	</p>
+	
+	<!-- Invoice Details Table -->
+	<table role="presentation" cellpadding="10" border="1" style="border:1px solid black; border-collapse:collapse">
+		<tr style="background-color:lightblue;" align="left" valign="center">
+			<th>Vendor</th>
+			<th>Employee Name</th>
+			<th>Submission Date</th>
+			<th>Invoice No</th>
+			<th>Period</th>
+			<th>Bill Hours</th>
+			<th>Bill Rate - Invoice</th>
+			<th>Bill Amount</th>
+			<th>Due Date</th>
+		</tr>
+		{2}
+	</table>
+
+	<p>
+		<br />
+		Copies of approved timesheets have been sent to {3}.
+		<br />
+		<br />
+		Please let me know if you need any other information from my end to facilitate the payment.
+		<br />
+		<br />
+		<br />
+		Thank you for your business,
+	</p>
+	
+	<!-- Signature -->
+	<table style="height:40px;">
+		<tr>
+			<td width="40">
+				<img src="{7}" width="70" height="80"/>
+			</td>
+			<td width="220">
+				<h5>
+				<span style="color: #003366;">Aniruddha Ray</span>
+				<br /><span style="color: #999999;">{4}</span>
+				<br /><span style="color: #999999;">{5}</span>
+				<br /><span style="color: #999999;">{6}</span>
+				</h5>
+			</td>	
+		<t/r>
+	</table>
+	
+</body>
+</html>
