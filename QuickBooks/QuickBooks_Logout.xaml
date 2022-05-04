@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1256.8,1128.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1202.4,1089.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>QuickBooks_Logout_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -77,24 +77,23 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="QuickBooks_Logout" sap:VirtualizedContainerService.HintSize="475.2,1064" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="QuickBooks_Logout" sap:VirtualizedContainerService.HintSize="475.2,1024.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Logging out of QuickBooks.&quot;]" />
-    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser - QuickBooks Self-Employed" sap:VirtualizedContainerService.HintSize="433.6,705.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="01a82d4e-655b-4311-827f-88a1d101940c" Version="V1" WindowResize="Maximize">
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Always" ContinueOnError="True" DisplayName="Use Browser - QuickBooks Self-Employed" sap:VirtualizedContainerService.HintSize="433.6,666.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="01a82d4e-655b-4311-827f-88a1d101940c" Version="V1" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Logging Out" sap:VirtualizedContainerService.HintSize="375.2,448.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Logging Out" sap:VirtualizedContainerService.HintSize="375.2,449.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -104,7 +103,7 @@
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://selfemployed.intuit.com/home#/app/home" DesignTimeRectangle="1539, 167, 86, 25" ElementType="Text" FriendlyName="'Aniruddha'" FullSelectorArgument="&lt;webctrl aaname='Aniruddha' parentid='gearmenudropdown1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='*' parentid='gearmenudropdown1' tag='DIV' type='' class='header-label display-name' /&gt;" Guid="b3727c74-04e8-45d5-8c1e-872dd049ab39" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFoAAAAdCAYAAAAq9XvWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAHiSURBVGhD7ZXdjcIwDIBvX+6JFfrEDBViDJAYgool6Ba+NLFLfuw2RRfrevInRUDqxM5Xt3yBoYKJVsJEK2GilTDRSphoJUy0EiZaCROtxP8UPd6h+z5Cdx1xYgEm9nU9weH7BLeK5bUsiB7h1h1dwiP0A059DO11gQfONGVXorGASfTh/MTJTzHRoujHOYjp/efvJm3ObkRTN0+dHH/fC3sRnSZaeOyjIsMTQKMs0l/v7vDC3zBcfGw/PKHHdf6wkqQ5Hn8TOP8eLvewvMda7Hx+vDbHc83G7TnitQhGNB48khISM4VTrBtvAfyNKUTTk5KsdWwQzdYV7VvK2xabnAHzl+tTsaHhStmFaF4qCc27GuezO017xFJE0XmXVIvmc3sKKVti+fpdYaGB4jNwCPVnouXXBL0a0uThAOtSZNHpfo5a0YygmXyPLbGOIDrvSkE0rp/2j0eeKxWNBS2OJNEfFZ3XtSXWUSuaffqF+iPRcjcT5funnej111HI3e7VsSZa6HDhpr5FCwdMKGIaiOZuOOXN4tmOwtz5/PbY9Y6WGi/fb2IWXS7iIAkU10L0BOXBMa1j9vREN2GOxbmirsrYWtFFnX4N7yT7MzRaYaKVMNFKmGglTLQSJloJE60CwA9Hc6vPNQpG4QAAAABJRU5ErkJggg==" ScopeSelectorArgument="&lt;html app='chrome.exe' title='QuickBooks Self-Employed' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                       <uix:Target DesignTimeRectangle="1506, 137, 24, 85" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl parentid='gearmenudropdown1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='gearmenudropdown1' tag='DIV' type='' class='hi header-icon hi-settings-o' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAABZCAYAAAAtmERLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAO1SURBVGhD7ZbdSyJRGMb3/20JKxMrMcIWNYzICzcYQohhYS4qiCWNog/oQ1AxFtfFbbcujAwpoi4GUeTZ93xMjTqSF2e92D0/OOi8c+Y8Z96vMx8wYkYvePXrN0Y5/gOXyt+RoQWVowWVowWVowWVowWVowWVowWVowWVowXfsCuwluYxEwxg7OMkfEH6v7SDalPeH5KhBR/2lkloEYntI+QLOWStJMIkbFzKCUPiLWjfYCsRgC9koWQLUz0TJ8E0SuKS+AbDLfiYgxGaw0zqCLWWtHnQL/hchBGcxFgwjgj7nTW5aP3roqdg6sxG6+4Uq2zuAj0zwX4tlOVGe+kWbFaQ5g/KB2xalF2P06DFxybILmYSFZhT0s5GbFe8mbPh2D7qHTHTTZegiFMSB0/SwCBRcyWNgx8v8PJU664Ia+O0e/Gfm/C73e2i+w3vjxB9xyVAG/YzuVFe9dG5RzZGawTJ/R5r9MeQgp9yxc6h1aA3WZmHz3EhDd8nC/lGW84gOi/Ir89RCJaRvZO2HvoFievNeXrIwLkUtL9bCDtx7B3j80hfOjujt4uQLZUb6AEhyOIUoUIO0RvIhf1mhd9CkxJnWtpWKeWdQm/e49ygjXHRt821Lgxu882K9XqbAxcUk6ioN0xsHRapsIuoPvL7eD5OikUjux5ZZ+M8JTYT3r4VJtpIuXCELVorvdHfHLggL+ppC1Vu6qa0LhZMHL9ISw+FtNiQpxtFrbqfHVowdeFKDjeXUnDlFM/S9MYAQeHSJCxyJXNnvlBBXfpdtDTxBh5ZjrJJWUn3/V+uhIG71FlnEwm61+dSnjQhcQo4I3ood/V0igRPpACimVuX29p4ODN4gbP4b9WE1UkaZ7B+XO5Nmm7ayK/R5PAOrmWS1KkDvdbflMw+V1uLZu7FRKcs1orvlIUbp/BjJOja2UPBEo3ZEWZjIg6zINOZ4eoy+f6AcroFn4pvYl4B61Bba9xQjCq4blB782jO7KA2F4Tou61NNO84sg1pYLRucZLJoTZgxzyWN7fdCTV083aOI+eoYQcxcxF3YQD+tZwr9duo7hmIyFjOGDk8sDd+XWOI44lzty9OjNkkEtw1n3FSe0Fpg/VX03Ueihrzr+wgfyZ6rS+SRJSJDXAno1+Q8Vik3kplMpvGucyJgZ8YBXHVqomN+qh3esZf4i3ogRNf80wW9WFa4UeUF/xEmXOdhxTTv/mZqAotqBwtqBwtqBwtqBwtqBwtqBwtqBwtqBwtqBwtqJx/XRD4AzU+dW7K4O+4AAAAAElFTkSuQmCC" SearchSteps="FuzzySelector" />
                     </scg:List>
                   </uix:TargetAnchorable.Anchors>
